@@ -35,35 +35,101 @@
 
     <div id="schedule-page" class="page" style="display: none;">
         <h1>Minha Agenda do Dia</h1>
-        <ul class="schedule-list">
-            <li><span class="time">08:00</span> <span class="activity">Acordar e se arrumar</span></li>
-            <li><span class="time">08:30</span> <span class="activity">Café da manhã</span></li>
-            <li><span class="time">09:00</span> <span class="activity">Brincar</span></li>
-            <li><span class="time">10:00</span> <span class="activity">Atividade da escola</span></li>
-            <li><span class="time">12:00</span> <span class="activity">Almoço</span></li>
-            <li><span class="time">13:00</span> <span class="activity">Descansar</span></li>
-            <li><span class="time">14:00</span> <span class="activity">Terapia</span></li>
-            <li><span class="time">16:00</span> <span class="activity">Lanche</span></li>
-            <li><span class="time">16:30</span> <span class="activity">Passeio no parque</span></li>
-            <li><span class="time">18:00</span> <span class="activity">Banho</span></li>
-            <li><span class="time">19:00</span> <span class="activity">Jantar</span></li>
-            <li><span class="time">20:00</span> <span class="activity">Hora da história</span></li>
-            <li><span class="time">21:00</span> <span class="activity">Dormir</span></li>
-        </ul>
+        <div class="schedule-grid">
+            <div class="schedule-card">
+                <img src="https://image.pollinations.ai/prompt/a%20claymation%20style%20child%20waking%20up%20in%20bed%2C%20sun%20shining%20through%20the%20window?width=256&height=256&seed=1&nologo=true" alt="Acordar e se arrumar">
+                <p>08:00 - Acordar e se arrumar</p>
+            </div>
+            <div class="schedule-card">
+                <img src="https://image.pollinations.ai/prompt/a%20claymation%20style%20breakfast%20table%20with%20pancakes%20and%20orange%20juice?width=256&height=256&seed=2&nologo=true" alt="Café da manhã">
+                <p>08:30 - Café da manhã</p>
+            </div>
+            <div class="schedule-card">
+                <img src="https://image.pollinations.ai/prompt/a%20claymation%20style%20child%20playing%20with%20colorful%20blocks?width=256&height=256&seed=3&nologo=true" alt="Brincar">
+                <p>09:00 - Brincar</p>
+            </div>
+            <div class="schedule-card">
+                <img src="https://image.pollinations.ai/prompt/a%20claymation%20style%20child%20drawing%20and%20painting%20at%20a%20desk?width=256&height=256&seed=4&nologo=true" alt="Atividade da escola">
+                <p>10:00 - Atividade da escola</p>
+            </div>
+            <div class="schedule-card">
+                <img src="https://image.pollinations.ai/prompt/a%20claymation%20style%20plate%20of%20spaghetti%20and%20meatballs?width=256&height=256&seed=5&nologo=true" alt="Almoço">
+                <p>12:00 - Almoço</p>
+            </div>
+            <div class="schedule-card">
+                <img src="https://image.pollinations.ai/prompt/a%20claymation%20style%20child%20sleeping%20in%20a%20cozy%20armchair?width=256&height=256&seed=6&nologo=true" alt="Descansar">
+                <p>13:00 - Descansar</p>
+            </div>
+            <div class="schedule-card">
+                <img src="https://image.pollinations.ai/prompt/a%20claymation%20style%20child%20talking%20with%20a%20friendly%20therapist?width=256&height=256&seed=7&nologo=true" alt="Terapia">
+                <p>14:00 - Terapia</p>
+            </div>
+            <div class="schedule-card">
+                <img src="https://image.pollinations.ai/prompt/a%20claymation%20style%20apple%20and%20a%20glass%20of%20milk?width=256&height=256&seed=8&nologo=true" alt="Lanche">
+                <p>16:00 - Lanche</p>
+            </div>
+            <div class="schedule-card">
+                <img src="https://image.pollinations.ai/prompt/a%20claymation%20style%20child%20on%20a%20swing%20in%20a%20park?width=256&height=256&seed=9&nologo=true" alt="Passeio no parque">
+                <p>16:30 - Passeio no parque</p>
+            </div>
+            <div class="schedule-card">
+                <img src="https://image.pollinations.ai/prompt/a%20claymation%20style%20child%20in%20a%20bathtub%20with%20rubber%20ducks?width=256&height=256&seed=10&nologo=true" alt="Banho">
+                <p>18:00 - Banho</p>
+            </div>
+            <div class="schedule-card">
+                <img src="https://image.pollinations.ai/prompt/a%20claymation%20style%20bowl%20of%20soup%20and%20bread?width=256&height=256&seed=11&nologo=true" alt="Jantar">
+                <p>19:00 - Jantar</p>
+            </div>
+            <div class="schedule-card">
+                <img src="https://image.pollinations.ai/prompt/a%20claymation%20style%20parent%20reading%20a%20book%20to%20a%20child?width=256&height=256&seed=12&nologo=true" alt="Hora da história">
+                <p>20:00 - Hora da história</p>
+            </div>
+            <div class="schedule-card">
+                <img src="https://image.pollinations.ai/prompt/a%20claymation%20style%20child%20sleeping%20in%20bed%20with%20a%20teddy%20bear?width=256&height=256&seed=13&nologo=true" alt="Dormir">
+                <p>21:00 - Dormir</p>
+            </div>
+        </div>
     </div>
 
     <div id="messages-page" class="page" style="display: none;">
         <h1>Mensagens Prontas</h1>
-        <div class="message-buttons">
-            <button class="message-button">Bom dia</button>
-            <button class="message-button">Boa tarde</button>
-            <button class="message-button">Tudo bem?</button>
-            <button class="message-button">Sim</button>
-            <button class="message-button">Não</button>
-            <button class="message-button">Quero</button>
-            <button class="message-button">Não quero</button>
-            <button class="message-button">Comer</button>
-            <button class="message-button">Banheiro</button>
+        <div class="message-grid">
+            <div class="message-card">
+                <img src="https://image.pollinations.ai/prompt/a%20claymation%20style%20sun%20rising?width=256&height=256&seed=14&nologo=true" alt="Bom dia">
+                <p>Bom dia</p>
+            </div>
+            <div class="message-card">
+                <img src="https://image.pollinations.ai/prompt/a%20claymation%20style%20sun%20in%20the%20afternoon%20sky?width=256&height=256&seed=15&nologo=true" alt="Boa tarde">
+                <p>Boa tarde</p>
+            </div>
+            <div class="message-card">
+                <img src="https://image.pollinations.ai/prompt/a%20claymation%20style%20smiling%20face%20with%20a%20question%20mark?width=256&height=256&seed=16&nologo=true" alt="Tudo bem?">
+                <p>Tudo bem?</p>
+            </div>
+            <div class="message-card">
+                <img src="https://image.pollinations.ai/prompt/a%20claymation%20style%20green%20checkmark?width=256&height=256&seed=17&nologo=true" alt="Sim">
+                <p>Sim</p>
+            </div>
+            <div class="message-card">
+                <img src="https://image.pollinations.ai/prompt/a%20claymation%20style%20red%20cross%20mark?width=256&height=256&seed=18&nologo=true" alt="Não">
+                <p>Não</p>
+            </div>
+            <div class="message-card">
+                <img src="https://image.pollinations.ai/prompt/a%20claymation%20style%20hand%20reaching%20out?width=256&height=256&seed=19&nologo=true" alt="Quero">
+                <p>Quero</p>
+            </div>
+            <div class="message-card">
+                <img src="https://image.pollinations.ai/prompt/a%20claymation%20style%20person%20shaking%20their%20head%20no?width=256&height=256&seed=20&nologo=true" alt="Não quero">
+                <p>Não quero</p>
+            </div>
+            <div class="message-card">
+                <img src="https://image.pollinations.ai/prompt/a%20claymation%20style%20mouth%20eating%20a%20cookie?width=256&height=256&seed=21&nologo=true" alt="Comer">
+                <p>Comer</p>
+            </div>
+            <div class="message-card">
+                <img src="https://image.pollinations.ai/prompt/a%20claymation%20style%20toilet?width=256&height=256&seed=22&nologo=true" alt="Banheiro">
+                <p>Banheiro</p>
+            </div>
         </div>
     </div>
 

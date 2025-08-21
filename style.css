@@ -160,32 +160,38 @@ nav {
     padding: 20px;
 }
 
-.schedule-list {
-    list-style: none;
-    padding: 0;
-    margin: 0 auto;
-    max-width: 600px;
-}
-
-.schedule-list li {
-    background-color: #fff;
-    margin-bottom: 10px;
+.schedule-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
     padding: 20px;
-    border-radius: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-.schedule-list .time {
-    font-weight: bold;
-    color: #ff4b2b;
-    font-size: 1.2em;
+.schedule-card {
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    text-align: center;
+    padding: 10px;
+    cursor: pointer;
+    transition: transform 0.2s;
 }
 
-.schedule-list .activity {
+.schedule-card:hover {
+    transform: scale(1.05);
+}
+
+.schedule-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.schedule-card p {
+    margin-top: 10px;
     font-size: 1.2em;
+    color: #333;
 }
 
 #messages-page {
@@ -193,26 +199,36 @@ nav {
     padding: 20px;
 }
 
-.message-buttons {
+.message-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
-    max-width: 800px;
-    margin: 0 auto;
+    padding: 20px;
 }
 
-.message-button {
-    background: linear-gradient(to right, #ff416c 0%, #ff4b2b 100%);
-    border: none;
-    color: white;
-    padding: 30px;
-    font-size: 1.5em;
+.message-card {
+    background-color: #fff;
     border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    text-align: center;
+    padding: 10px;
     cursor: pointer;
     transition: transform 0.2s;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
-.message-button:hover {
+.message-card:hover {
     transform: scale(1.05);
+}
+
+.message-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.message-card p {
+    margin-top: 10px;
+    font-size: 1.2em;
+    color: #333;
 }

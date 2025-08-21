@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function generateCharacterImage() {
-        const prompt = "a friendly 3D Disney-style animal on a white background";
+        const prompt = "a friendly claymation style animal on a white background";
         const encodedPrompt = encodeURIComponent(prompt);
         const width = 512;
         const height = 512;
@@ -126,10 +126,19 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    const messageButtons = document.querySelectorAll('.message-button');
-    messageButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            speak(button.textContent);
+    const messageCards = document.querySelectorAll('.message-card');
+    messageCards.forEach(card => {
+        card.addEventListener('click', () => {
+            const text = card.querySelector('p').textContent;
+            speak(text);
+        });
+    });
+
+    const scheduleCards = document.querySelectorAll('.schedule-card');
+    scheduleCards.forEach(card => {
+        card.addEventListener('click', () => {
+            const text = card.querySelector('p').textContent;
+            speak(text);
         });
     });
 });
