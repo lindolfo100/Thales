@@ -181,17 +181,22 @@ nav {
     transform: scale(1.05);
 }
 
-.schedule-card img {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
+.schedule-card lottie-player {
     border-radius: 15px;
+    overflow: hidden;
+    margin: 0 auto; /* Center the player */
 }
 
 .schedule-card p {
     margin-top: 10px;
     font-size: 1.2em;
     color: #333;
+}
+
+.message-card lottie-player {
+    border-radius: 15px;
+    overflow: hidden;
+    margin: 0 auto; /* Center the player */
 }
 
 #messages-page {

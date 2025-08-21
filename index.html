@@ -1,224 +1,146 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aplicativo de Comunicação para Crianças</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #fdfdfd;
-      margin: 0;
-      padding: 0;
-      text-align: center;
-    }
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      background: #ffdd57;
-      padding: 10px;
-    }
-    .nav-button {
-      padding: 10px 20px;
-      border: none;
-      border-radius: 12px;
-      background: #ff914d;
-      color: #fff;
-      font-size: 16px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    .nav-button:hover {
-      background: #ff5722;
-    }
-    .page {
-      padding: 20px;
-    }
-    .schedule-grid, .message-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 15px;
-      margin-top: 20px;
-    }
-    .schedule-card, .message-card {
-      background: #fff8e7;
-      border-radius: 16px;
-      padding: 10px;
-      box-shadow: 0px 4px 8px rgba(0,0,0,0.15);
-      cursor: pointer;
-      transition: transform 0.2s;
-    }
-    .schedule-card:hover, .message-card:hover {
-      transform: scale(1.05);
-    }
-    .schedule-card img, .message-card img {
-      width: 100%;
-      border-radius: 12px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicativo de Comunicação para Crianças</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 </head>
 <body>
-  <div id="welcome-screen">
-    <h1>Bem-vindo!</h1>
-    <p>Estou aqui para conversar com você.</p>
-    <button id="start-button">Começar</button>
-  </div>
+    <div id="welcome-screen">
+        <h1>Bem-vindo!</h1>
+        <p>Estou aqui para conversar com você.</p>
+        <button id="start-button">Começar</button>
+    </div>
 
-  <nav style="display: none;">
-    <button class="nav-button" data-page="chat-page">Conversar</button>
-    <button class="nav-button" data-page="schedule-page">Agenda</button>
-    <button class="nav-button" data-page="messages-page">Mensagens</button>
-  </nav>
+    <nav>
+        <button class="nav-button" data-page="chat-page">Conversar</button>
+        <button class="nav-button" data-page="schedule-page">Agenda</button>
+        <button class="nav-button" data-page="messages-page">Mensagens</button>
+    </nav>
 
-  <!-- CHAT -->
-  <div id="chat-page" class="page" style="display: none;">
-    <div class="main-content">
-      <div id="character-container">
-        <img id="character-image" src="" alt="Personagem">
-      </div>
-      <div id="chat-container">
-        <div id="question-box">
-          <p id="question-text"></p>
+    <div id="chat-page" class="page">
+        <div class="main-content">
+            <div id="character-container">
+                <lottie-player
+                    id="character-lottie"
+                    autoplay
+                    loop
+                    mode="normal"
+                    src=""
+                    style="width: 300px; height: 300px;">
+                </lottie-player>
+            </div>
+            <div id="chat-container">
+                <div id="question-box">
+                    <p id="question-text"></p>
+                </div>
+                <button id="next-question-button">Próxima Pergunta</button>
+            </div>
         </div>
-        <button id="next-question-button">Próxima Pergunta</button>
-      </div>
     </div>
-  </div>
 
-  <!-- AGENDA -->
-  <div id="schedule-page" class="page" style="display: none;">
-    <h1>Minha Agenda do Dia</h1>
-    <div class="schedule-grid">
-      <div class="schedule-card">
-        <img src="https://image.pollinations.ai/prompt/claymation%20style%20child%20waking%20up%20in%20a%20cozy%20bedroom%20with%20morning%20sunlight%2C%20colorful%2C%20kid-friendly?width=256&height=256&nologo=true&seed=1" alt="Acordar e se arrumar">
-        <p>08:00 - Acordar e se arrumar</p>
-      </div>
-      <div class="schedule-card">
-        <img src="https://image.pollinations.ai/prompt/claymation%20style%20breakfast%20table%20with%20pancakes%20and%20orange%20juice%2C%20colorful%2C%20kid-friendly?width=256&height=256&nologo=true&seed=2" alt="Café da manhã">
-        <p>08:30 - Café da manhã</p>
-      </div>
-      <div class="schedule-card">
-        <img src="https://image.pollinations.ai/prompt/claymation%20style%20child%20playing%20with%20colorful%20blocks%20on%20the%20floor%2C%20bright%2C%20playful?width=256&height=256&nologo=true&seed=3" alt="Brincar">
-        <p>09:00 - Brincar</p>
-      </div>
-      <div class="schedule-card">
-        <img src="https://image.pollinations.ai/prompt/claymation%20style%20child%20drawing%20and%20painting%20at%20a%20desk%2C%20colorful%2C%20creative?width=256&height=256&nologo=true&seed=4" alt="Atividade da escola">
-        <p>10:00 - Atividade da escola</p>
-      </div>
-      <div class="schedule-card">
-        <img src="https://image.pollinations.ai/prompt/claymation%20style%20plate%20of%20spaghetti%20and%20meatballs%2C%20bright%2C%20colorful%2C%20kid-friendly?width=256&height=256&nologo=true&seed=5" alt="Almoço">
-        <p>12:00 - Almoço</p>
-      </div>
-      <div class="schedule-card">
-        <img src="https://image.pollinations.ai/prompt/claymation%20style%20child%20resting%20in%20a%20cozy%20armchair%2C%20peaceful%2C%20warm%20colors?width=256&height=256&nologo=true&seed=6" alt="Descansar">
-        <p>13:00 - Descansar</p>
-      </div>
-      <div class="schedule-card">
-        <img src="https://image.pollinations.ai/prompt/claymation%20style%20child%20talking%20with%20a%20friendly%20therapist%2C%20colorful%2C%20positive?width=256&height=256&nologo=true&seed=7" alt="Terapia">
-        <p>14:00 - Terapia</p>
-      </div>
-      <div class="schedule-card">
-        <img src="https://image.pollinations.ai/prompt/claymation%20style%20apple%20and%20a%20glass%20of%20milk%2C%20bright%2C%20simple%20and%20kid-friendly?width=256&height=256&nologo=true&seed=8" alt="Lanche">
-        <p>16:00 - Lanche</p>
-      </div>
-      <div class="schedule-card">
-        <img src="https://image.pollinations.ai/prompt/claymation%20style%20child%20on%20a%20swing%20in%20a%20park%2C%20sunny%2C%20playful%2C%20colorful?width=256&height=256&nologo=true&seed=9" alt="Passeio no parque">
-        <p>16:30 - Passeio no parque</p>
-      </div>
-      <div class="schedule-card">
-        <img src="https://image.pollinations.ai/prompt/claymation%20style%20child%20in%20a%20bathtub%20with%20rubber%20ducks%2C%20fun%2C%20colorful?width=256&height=256&nologo=true&seed=10" alt="Banho">
-        <p>18:00 - Banho</p>
-      </div>
-      <div class="schedule-card">
-        <img src="https://image.pollinations.ai/prompt/claymation%20style%20bowl%20of%20soup%20and%20bread%2C%20warm%2C%20cozy%20colors?width=256&height=256&nologo=true&seed=11" alt="Jantar">
-        <p>19:00 - Jantar</p>
-      </div>
-      <div class="schedule-card">
-        <img src="https://image.pollinations.ai/prompt/claymation%20style%20parent%20reading%20a%20storybook%20to%20a%20child%2C%20warm%2C%20cozy%2C%20colorful?width=256&height=256&nologo=true&seed=12" alt="Hora da história">
-        <p>20:00 - Hora da história</p>
-      </div>
-      <div class="schedule-card">
-        <img src="https://image.pollinations.ai/prompt/claymation%20style%20child%20sleeping%20in%20bed%20with%20a%20teddy%20bear%2C%20peaceful%2C%20cozy?width=256&height=256&nologo=true&seed=13" alt="Dormir">
-        <p>21:00 - Dormir</p>
-      </div>
+    <div id="schedule-page" class="page" style="display: none;">
+        <h1>Minha Agenda do Dia</h1>
+        <div class="schedule-grid">
+            <div class="schedule-card">
+                <lottie-player autoplay loop mode="normal" src="https://assets2.lottiefiles.com/packages/lf20_1cazwtnc.json" style="width: 100%; height: 150px;"></lottie-player>
+                <p>08:00 - Acordar e se arrumar</p>
+            </div>
+            <div class="schedule-card">
+                <lottie-player autoplay loop mode="normal" src="https://assets1.lottiefiles.com/packages/lf20_9wjm14aj.json" style="width: 100%; height: 150px;"></lottie-player>
+                <p>08:30 - Café da manhã</p>
+            </div>
+            <div class="schedule-card">
+                <lottie-player autoplay loop mode="normal" src="https://assets4.lottiefiles.com/packages/lf20_q7a0yv.json" style="width: 100%; height: 150px;"></lottie-player>
+                <p>09:00 - Brincar</p>
+            </div>
+            <div class="schedule-card">
+                <lottie-player autoplay loop mode="normal" src="https://assets9.lottiefiles.com/packages/lf20_c1hkz3q2.json" style="width: 100%; height: 150px;"></lottie-player>
+                <p>10:00 - Atividade da escola</p>
+            </div>
+            <div class="schedule-card">
+                <lottie-player autoplay loop mode="normal" src="https://assets6.lottiefiles.com/packages/lf20_b7zhs2b8.json" style="width: 100%; height: 150px;"></lottie-player>
+                <p>12:00 - Almoço</p>
+            </div>
+            <div class="schedule-card">
+                <lottie-player autoplay loop mode="normal" src="https://assets10.lottiefiles.com/packages/lf20_5zrfwkyu.json" style="width: 100%; height: 150px;"></lottie-player>
+                <p>13:00 - Descansar</p>
+            </div>
+            <div class="schedule-card">
+                <lottie-player autoplay loop mode="normal" src="https://assets8.lottiefiles.com/packages/lf20_xmd3slas.json" style="width: 100%; height: 150px;"></lottie-player>
+                <p>14:00 - Terapia</p>
+            </div>
+            <div class="schedule-card">
+                <lottie-player autoplay loop mode="normal" src="https://assets1.lottiefiles.com/packages/lf20_bmlw3smr.json" style="width: 100%; height: 150px;"></lottie-player>
+                <p>16:00 - Lanche</p>
+            </div>
+            <div class="schedule-card">
+                <lottie-player autoplay loop mode="normal" src="https://assets2.lottiefiles.com/packages/lf20_y22bt3pl.json" style="width: 100%; height: 150px;"></lottie-player>
+                <p>16:30 - Passeio no parque</p>
+            </div>
+            <div class="schedule-card">
+                <lottie-player autoplay loop mode="normal" src="https://assets7.lottiefiles.com/packages/lf20_g0i4y1tq.json" style="width: 100%; height: 150px;"></lottie-player>
+                <p>18:00 - Banho</p>
+            </div>
+            <div class="schedule-card">
+                <lottie-player autoplay loop mode="normal" src="https://assets5.lottiefiles.com/packages/lf20_qjvinw.json" style="width: 100%; height: 150px;"></lottie-player>
+                <p>19:00 - Jantar</p>
+            </div>
+            <div class="schedule-card">
+                <lottie-player autoplay loop mode="normal" src="https://assets3.lottiefiles.com/packages/lf20_y0hsf2p9.json" style="width: 100%; height: 150px;"></lottie-player>
+                <p>20:00 - Hora da história</p>
+            </div>
+            <div class="schedule-card">
+                <lottie-player autoplay loop mode="normal" src="https://assets9.lottiefiles.com/packages/lf20_j1g8xd.json" style="width: 100%; height: 150px;"></lottie-player>
+                <p>21:00 - Dormir</p>
+            </div>
+        </div>
     </div>
-  </div>
 
-  <!-- MENSAGENS -->
-  <div id="messages-page" class="page" style="display: none;">
-    <h1>Mensagens Prontas</h1>
-    <div class="message-grid">
-      <div class="message-card" data-text="Bom dia">
-        <img src="https://image.pollinations.ai/prompt/claymation%20style%20happy%20sun%20rising%2C%20colorful%2C%20kid-friendly?width=256&height=256&nologo=true&seed=14" alt="Bom dia">
-        <p>Bom dia</p>
-      </div>
-      <div class="message-card" data-text="Boa tarde">
-        <img src="https://image.pollinations.ai/prompt/claymation%20style%20sun%20in%20the%20afternoon%20sky%2C%20bright%2C%20friendly?width=256&height=256&nologo=true&seed=15" alt="Boa tarde">
-        <p>Boa tarde</p>
-      </div>
-      <div class="message-card" data-text="Tudo bem?">
-        <img src="https://image.pollinations.ai/prompt/claymation%20style%20smiling%20face%20with%20a%20question%20mark%2C%20playful%2C%20kid-friendly?width=256&height=256&nologo=true&seed=16" alt="Tudo bem?">
-        <p>Tudo bem?</p>
-      </div>
-      <div class="message-card" data-text="Sim">
-        <img src="https://image.pollinations.ai/prompt/claymation%20style%20green%20checkmark%2C%20bright%20colors?width=256&height=256&nologo=true&seed=17" alt="Sim">
-        <p>Sim</p>
-      </div>
-      <div class="message-card" data-text="Não">
-        <img src="https://image.pollinations.ai/prompt/claymation%20style%20red%20cross%20mark%2C%20bold%20and%20colorful?width=256&height=256&nologo=true&seed=18" alt="Não">
-        <p>Não</p>
-      </div>
-      <div class="message-card" data-text="Quero">
-        <img src="https://image.pollinations.ai/prompt/claymation%20style%20hand%20reaching%20out%2C%20playful%2C%20colorful?width=256&height=256&nologo=true&seed=19" alt="Quero">
-        <p>Quero</p>
-      </div>
-      <div class="message-card" data-text="Não quero">
-        <img src="https://image.pollinations.ai/prompt/claymation%20style%20person%20shaking%20head%20no%2C%20cartoonish%2C%20kid-friendly?width=256&height=256&nologo=true&seed=20" alt="Não quero">
-        <p>Não quero</p>
-      </div>
-      <div class="message-card" data-text="Comer">
-        <img src="https://image.pollinations.ai/prompt/claymation%20style%20cookie%20being%20eaten%2C%20playful%2C%20bright%20colors?width=256&height=256&nologo=true&seed=21" alt="Comer">
-        <p>Comer</p>
-      </div>
-      <div class="message-card" data-text="Banheiro">
-        <img src="https://image.pollinations.ai/prompt/claymation%20style%20toilet%2C%20cartoonish%2C%20bright%2C%20kid-friendly?width=256&height=256&nologo=true&seed=22" alt="Banheiro">
-        <p>Banheiro</p>
-      </div>
+    <div id="messages-page" class="page" style="display: none;">
+        <h1>Mensagens Prontas</h1>
+        <div class="message-grid">
+            <div class="message-card">
+                <lottie-player autoplay loop mode="normal" src="https://assets2.lottiefiles.com/packages/lf20_1cazwtnc.json" style="width: 100%; height: 150px;"></lottie-player>
+                <p>Bom dia</p>
+            </div>
+            <div class="message-card">
+                <lottie-player autoplay loop mode="normal" src="https://assets10.lottiefiles.com/packages/lf20_e82bcf.json" style="width: 100%; height: 150px;"></lottie-player>
+                <p>Boa tarde</p>
+            </div>
+            <div class="message-card">
+                <lottie-player autoplay loop mode="normal" src="https://assets1.lottiefiles.com/packages/lf20_ygrjsd.json" style="width: 100%; height: 150px;"></lottie-player>
+                <p>Tudo bem?</p>
+            </div>
+            <div class="message-card">
+                <lottie-player autoplay loop mode="normal" src="https://assets1.lottiefiles.com/packages/lf20_n7frsn.json" style="width: 100%; height: 150px;"></lottie-player>
+                <p>Sim</p>
+            </div>
+            <div class="message-card">
+                <lottie-player autoplay loop mode="normal" src="https://assets4.lottiefiles.com/packages/lf20_qjvyfh.json" style="width: 100%; height: 150px;"></lottie-player>
+                <p>Não</p>
+            </div>
+            <div class="message-card">
+                <lottie-player autoplay loop mode="normal" src="https://assets10.lottiefiles.com/packages/lf20_h3vxw0.json" style="width: 100%; height: 150px;"></lottie-player>
+                <p>Quero</p>
+            </div>
+            <div class="message-card">
+                <lottie-player autoplay loop mode="normal" src="https://assets4.lottiefiles.com/packages/lf20_qjvyfh.json" style="width: 100%; height: 150px;"></lottie-player>
+                <p>Não quero</p>
+            </div>
+            <div class="message-card">
+                <lottie-player autoplay loop mode="normal" src="https://assets6.lottiefiles.com/packages/lf20_b7zhs2b8.json" style="width: 100%; height: 150px;"></lottie-player>
+                <p>Comer</p>
+            </div>
+            <div class="message-card">
+                <lottie-player autoplay loop mode="normal" src="https://assets1.lottiefiles.com/packages/lf20_joxbmw.json" style="width: 100%; height: 150px;"></lottie-player>
+                <p>Banheiro</p>
+            </div>
+        </div>
     </div>
-  </div>
 
-  <script>
-    // navegação
-    const nav = document.querySelector("nav");
-    const pages = document.querySelectorAll(".page");
-    document.querySelectorAll(".nav-button").forEach(btn => {
-      btn.addEventListener("click", () => {
-        pages.forEach(p => p.style.display = "none");
-        document.getElementById(btn.dataset.page).style.display = "block";
-      });
-    });
-
-    // tela inicial
-    document.getElementById("start-button").addEventListener("click", () => {
-      document.getElementById("welcome-screen").style.display = "none";
-      nav.style.display = "flex";
-      document.getElementById("chat-page").style.display = "block";
-    });
-
-    // voz nas mensagens
-    function falar(texto) {
-      const utterance = new SpeechSynthesisUtterance(texto);
-      utterance.lang = "pt-BR";
-      speechSynthesis.speak(utterance);
-    }
-    document.querySelectorAll(".message-card").forEach(card => {
-      card.addEventListener("click", () => {
-        const texto = card.dataset.text;
-        falar(texto);
-      });
-    });
-  </script>
+    <script src="script.js"></script>
 </body>
 </html>

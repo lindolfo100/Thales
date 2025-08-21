@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const mainContent = document.querySelector('.main-content');
     const characterContainer = document.getElementById('character-container');
     const chatContainer = document.getElementById('chat-container');
-    const characterImage = document.getElementById('character-image');
+    const characterLottie = document.getElementById('character-lottie');
     const questionText = document.getElementById('question-text');
     const nextQuestionButton = document.getElementById('next-question-button');
 
@@ -83,15 +83,9 @@ document.addEventListener('DOMContentLoaded', () => {
         displayQuestion();
     }
 
-    function generateCharacterImage() {
-        const prompt = "a friendly claymation style animal on a white background";
-        const encodedPrompt = encodeURIComponent(prompt);
-        const width = 512;
-        const height = 512;
-        const seed = Math.floor(Math.random() * 100000);
-        const nologo = true;
-        const imageUrl = `https://image.pollinations.ai/prompt/${encodedPrompt}?width=${width}&height=${height}&seed=${seed}&nologo=${nologo}`;
-        characterImage.src = imageUrl;
+    function loadCharacterAnimation() {
+        const animationUrl = "https://assets1.lottiefiles.com/packages/lf20_v4isjbj5.json";
+        characterLottie.load(animationUrl);
     }
 
     function showPage(pageId) {
@@ -111,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
         showPage('chat-page'); // Show chat page by default
 
         setupSpeechRecognition();
-        generateCharacterImage();
+        loadCharacterAnimation();
 
         speak(welcomeMessage, () => {
             displayQuestion();
