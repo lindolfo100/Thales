@@ -12,11 +12,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const nextQuestionButton = document.getElementById('next-question-button');
 
     const questions = [
-        "Qual é a sua cor favorita?",
-        "Qual é o seu animal favorito?",
-        "O que você gosta de fazer para se divertir?",
-        "Qual é a sua comida favorita?",
-        "Você tem um super-herói favorito? Qual é?"
+        { text: "Qual é a sua cor favorita?", animation: "https://assets5.lottiefiles.com/packages/lf20_VeqtOe.json" },
+        { text: "Qual é o seu animal favorito?", animation: "https://assets1.lottiefiles.com/packages/lf20_bcjfi4ur.json" },
+        { text: "O que você gosta de fazer para se divertir?", animation: "https://assets8.lottiefiles.com/packages/lf20_x07ljc.json" },
+        { text: "Qual é a sua comida favorita?", animation: "https://assets8.lottiefiles.com/packages/lf20_6wutsrox.json" },
+        { text: "Você tem um super-herói favorito? Qual é?", animation: "https://assets2.lottiefiles.com/packages/lf20_zddvj6.json" }
     ];
 
     let currentQuestionIndex = 0;
@@ -60,8 +60,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function displayQuestion() {
-        questionText.textContent = questions[currentQuestionIndex];
-        speak(questions[currentQuestionIndex], () => {
+        const currentQuestion = questions[currentQuestionIndex];
+        questionText.textContent = currentQuestion.text;
+        characterLottie.load(currentQuestion.animation);
+        speak(currentQuestion.text, () => {
             if (recognition) {
                 try {
                     recognition.start();
@@ -83,11 +85,6 @@ document.addEventListener('DOMContentLoaded', () => {
         displayQuestion();
     }
 
-    function loadCharacterAnimation() {
-        const animationUrl = "https://assets1.lottiefiles.com/packages/lf20_v4isjbj5.json";
-        characterLottie.load(animationUrl);
-    }
-
     function showPage(pageId) {
         pages.forEach(page => {
             page.style.display = page.id === pageId ? 'block' : 'none';
@@ -102,10 +99,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         welcomeScreen.style.display = 'none';
         nav.style.display = 'block';
-        showPage('chat-page'); // Show chat page by default
+        showPage('chat-page');
 
         setupSpeechRecognition();
-        loadCharacterAnimation();
 
         speak(welcomeMessage, () => {
             displayQuestion();
