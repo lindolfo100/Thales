@@ -1,6 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
     const welcomeScreen = document.getElementById('welcome-screen');
     const startButton = document.getElementById('start-button');
+    const nav = document.querySelector('nav');
+    const navButtons = document.querySelectorAll('.nav-button');
+    const pages = document.querySelectorAll('.page');
     const mainContent = document.querySelector('.main-content');
     const characterContainer = document.getElementById('character-container');
     const chatContainer = document.getElementById('chat-container');
@@ -23,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
         if (!SpeechRecognition) {
             console.error("Speech Recognition not available");
-            nextQuestionButton.style.display = 'block'; // Show button if recognition is not available
+            nextQuestionButton.style.display = 'block';
             return;
         }
 
@@ -38,7 +41,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         recognition.onerror = (event) => {
             console.error("Speech recognition error", event.error);
-            // In case of error, we can still proceed to the next question or show the button
             nextQuestion();
         };
     }
@@ -65,11 +67,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     recognition.start();
                 } catch(e) {
                     console.error("Could not start recognition", e);
-                    // If recognition fails to start, move to next question after a delay
                     setTimeout(nextQuestion, 5000);
                 }
             } else {
-                // If recognition is not set up, show the button
                 nextQuestionButton.style.display = 'block';
             }
         });
@@ -94,14 +94,21 @@ document.addEventListener('DOMContentLoaded', () => {
         characterImage.src = imageUrl;
     }
 
+    function showPage(pageId) {
+        pages.forEach(page => {
+            page.style.display = page.id === pageId ? 'block' : 'none';
+        });
+        navButtons.forEach(button => {
+            button.classList.toggle('active', button.dataset.page === pageId);
+        });
+    }
+
     function startApp() {
         const welcomeMessage = document.querySelector('#welcome-screen h1').textContent + ' ' + document.querySelector('#welcome-screen p').textContent;
 
-        mainContent.style.display = 'flex';
-        characterContainer.style.display = 'block';
-        chatContainer.style.display = 'flex';
         welcomeScreen.style.display = 'none';
-        nextQuestionButton.style.display = 'none'; // Hide button by default
+        nav.style.display = 'block';
+        showPage('chat-page'); // Show chat page by default
 
         setupSpeechRecognition();
         generateCharacterImage();
@@ -113,4 +120,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     startButton.addEventListener('click', startApp);
     nextQuestionButton.addEventListener('click', nextQuestion);
+    navButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            showPage(button.dataset.page);
+        });
+    });
+
+    const messageButtons = document.querySelectorAll('.message-button');
+    messageButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            speak(button.textContent);
+        });
+    });
 });

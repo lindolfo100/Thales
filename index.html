@@ -12,17 +12,61 @@
         <p>Estou aqui para conversar com você.</p>
         <button id="start-button">Começar</button>
     </div>
-    <div class="main-content">
-        <div id="character-container">
-            <img id="character-image" src="" alt="Personagem">
-        </div>
-        <div id="chat-container">
-            <div id="question-box">
-                <p id="question-text"></p>
+
+    <nav>
+        <button class="nav-button" data-page="chat-page">Conversar</button>
+        <button class="nav-button" data-page="schedule-page">Agenda</button>
+        <button class="nav-button" data-page="messages-page">Mensagens</button>
+    </nav>
+
+    <div id="chat-page" class="page">
+        <div class="main-content">
+            <div id="character-container">
+                <img id="character-image" src="" alt="Personagem">
             </div>
-            <button id="next-question-button">Próxima Pergunta</button>
+            <div id="chat-container">
+                <div id="question-box">
+                    <p id="question-text"></p>
+                </div>
+                <button id="next-question-button">Próxima Pergunta</button>
+            </div>
         </div>
     </div>
+
+    <div id="schedule-page" class="page" style="display: none;">
+        <h1>Minha Agenda do Dia</h1>
+        <ul class="schedule-list">
+            <li><span class="time">08:00</span> <span class="activity">Acordar e se arrumar</span></li>
+            <li><span class="time">08:30</span> <span class="activity">Café da manhã</span></li>
+            <li><span class="time">09:00</span> <span class="activity">Brincar</span></li>
+            <li><span class="time">10:00</span> <span class="activity">Atividade da escola</span></li>
+            <li><span class="time">12:00</span> <span class="activity">Almoço</span></li>
+            <li><span class="time">13:00</span> <span class="activity">Descansar</span></li>
+            <li><span class="time">14:00</span> <span class="activity">Terapia</span></li>
+            <li><span class="time">16:00</span> <span class="activity">Lanche</span></li>
+            <li><span class="time">16:30</span> <span class="activity">Passeio no parque</span></li>
+            <li><span class="time">18:00</span> <span class="activity">Banho</span></li>
+            <li><span class="time">19:00</span> <span class="activity">Jantar</span></li>
+            <li><span class="time">20:00</span> <span class="activity">Hora da história</span></li>
+            <li><span class="time">21:00</span> <span class="activity">Dormir</span></li>
+        </ul>
+    </div>
+
+    <div id="messages-page" class="page" style="display: none;">
+        <h1>Mensagens Prontas</h1>
+        <div class="message-buttons">
+            <button class="message-button">Bom dia</button>
+            <button class="message-button">Boa tarde</button>
+            <button class="message-button">Tudo bem?</button>
+            <button class="message-button">Sim</button>
+            <button class="message-button">Não</button>
+            <button class="message-button">Quero</button>
+            <button class="message-button">Não quero</button>
+            <button class="message-button">Comer</button>
+            <button class="message-button">Banheiro</button>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
