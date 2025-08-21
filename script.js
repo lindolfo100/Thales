@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function generateCharacterImage() {
-        const prompt = "a 3D Disney-style childish character face on a white background";
+        const prompt = "a friendly 3D Disney-style animal on a white background";
         const encodedPrompt = encodeURIComponent(prompt);
         const width = 512;
         const height = 512;
