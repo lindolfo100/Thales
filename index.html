@@ -7,14 +7,21 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="character-container">
-        <img id="character-image" src="" alt="Personagem">
+    <div id="welcome-screen">
+        <h1>Bem-vindo!</h1>
+        <p>Estou aqui para conversar com você.</p>
+        <button id="start-button">Começar</button>
     </div>
-    <div id="chat-container">
-        <div id="question-box">
-            <p id="question-text"></p>
+    <div class="main-content">
+        <div id="character-container">
+            <img id="character-image" src="" alt="Personagem">
         </div>
-        <button id="next-question-button">Próxima Pergunta</button>
+        <div id="chat-container">
+            <div id="question-box">
+                <p id="question-text"></p>
+            </div>
+            <button id="next-question-button">Próxima Pergunta</button>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
